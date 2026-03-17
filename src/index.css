@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* WLBIZ Design System - Dark Purple Crypto Theme */
+
+@layer base {
+  :root {
+    --background: 260 45% 8%;
+    --foreground: 0 0% 100%;
+
+    --card: 260 40% 12%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 260 40% 12%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 280 100% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 260 35% 18%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 260 30% 20%;
+    --muted-foreground: 260 15% 65%;
+
+    --accent: 280 100% 65%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 260 30% 25%;
+    --input: 260 30% 20%;
+    --ring: 280 100% 65%;
+
+    --radius: 0.75rem;
+
+    /* Custom WLBIZ colors */
+    --wlbiz-purple: 280 100% 65%;
+    --wlbiz-pink: 320 100% 60%;
+    --wlbiz-cyan: 190 100% 50%;
+    --wlbiz-dark: 260 45% 8%;
+    --wlbiz-dark-card:#1A0936;
+    --wlbiz-dark-lighter: 260 35% 18%;
+    --wlbiz-gradient-start: 280 100% 65%;
+    --wlbiz-gradient-end: 320 100% 60%;
+
+    --sidebar-background: 260 40% 10%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 280 100% 65%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 260 35% 18%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 260 30% 25%;
+    --sidebar-ring: 280 100% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Oxanium', sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+/* Global styles for gradient-primary buttons - outside layer for higher priority */
+button.gradient-primary,
+.gradient-primary button,
+.gradient-primary {
+  color: #ffffff !important;
+}
+
+button.gradient-primary *,
+.gradient-primary button *,
+.gradient-primary * {
+  color: #ffffff !important;
+}
+
+@layer utilities {
+  .gradient-primary {
+    background: linear-gradient(90deg, #7C4EFF 0%, #FF397D 100%) !important;
+    border: 1px solid;
+    border-image-source: linear-gradient(90deg, #5E21AA 0%, #DF4993 100%);
+    border-image-slice: 1;
+    position: relative;
+  }
+
+  /* For rounded buttons, create gradient border using pseudo-element */
+  .gradient-primary[class*="rounded"],
+  button.gradient-primary[class*="rounded"] {
+    border-image: none !important;
+    border: none !important;
+    background: transparent !important;
+    position: relative;
+    z-index: 0;
+  }
+
+  .gradient-primary[class*="rounded"]::before,
+  button.gradient-primary[class*="rounded"]::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #5E21AA 0%, #DF4993 100%);
+    z-index: -2;
+  }
+
+  .gradient-primary[class*="rounded"]::after,
+  button.gradient-primary[class*="rounded"]::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #7C4EFF 0%, #FF397D 100%);
+    z-index: -1;
+  }
+
+  .gradient-primary[class*="rounded"] > *,
+  button.gradient-primary[class*="rounded"] > *,
+  .gradient-primary[class*="rounded"] *,
+  button.gradient-primary[class*="rounded"] * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, hsl(var(--wlbiz-purple)), hsl(var(--wlbiz-pink)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glass-card {
+    background: hsl(var(--wlbiz-dark-card) / 0.8);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--border) / 0.5);
+  }
+
+  .glow-purple {
+    box-shadow: 0 0 30px hsl(var(--wlbiz-purple) / 0.3);
+  }
+
+  .glow-pink {
+    box-shadow: 0 0 30px hsl(var(--wlbiz-pink) / 0.3);
+  }
+}
