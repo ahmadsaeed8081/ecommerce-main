@@ -172,7 +172,7 @@ const Profile = () => {
     try {
 
       const response = await fetch(
-        `http://187.127.99.119:8000/api/user/purchases/${walletAddress}`
+        `https://api.weblifebiz.com/api/user/purchases/${walletAddress}`
       );
       const data = await response.json();
   
@@ -198,7 +198,7 @@ const Profile = () => {
     try {
 
       const response = await fetch(
-        `http://187.127.99.119:8000/api/user/info/${walletAddress}`
+        `https://api.weblifebiz.com/api/user/info/${walletAddress}`
 
       );
       const data = await response.json();
@@ -246,7 +246,7 @@ const Profile = () => {
 
 
   try {
-    const response = await fetch(`http://187.127.99.119:8000/api/user/save/`
+    const response = await fetch(`https://api.weblifebiz.com/api/user/save/`
 , {
       method: "POST",
       headers: {
@@ -274,7 +274,7 @@ const Profile = () => {
 
 const getUserInvestmentSummary = async (walletAddress) => {
   try {
-    const res = await fetch(`http://187.127.99.119:8000/api/user/summary/${walletAddress}`);
+    const res = await fetch(`https://api.weblifebiz.com/api/user/summary/${walletAddress}`);
     const data = await res.json();
 
     setuser(data);
@@ -290,7 +290,7 @@ async function withdrawReward(walletAddress){
 
   try{
 
-    const res = await fetch(`http://187.127.99.119:8000/api/user/reward/claim/${walletAddress}`,{
+    const res = await fetch(`https://api.weblifebiz.com/api/user/reward/claim/${walletAddress}`,{
       method:"POST",
       headers:{
         "Content-Type":"application/json"

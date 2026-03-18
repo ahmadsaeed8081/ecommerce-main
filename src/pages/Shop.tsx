@@ -34,7 +34,7 @@ const Shop = () => {
     const fetchCategories = async () => {
       setLoadingCategories(true);
       try {
-        const res = await fetch("http://187.127.99.119:8000/api/categories"); // backend endpoint
+        const res = await fetch("https://api.weblifebiz.com/api/categories"); // backend endpoint
         if (!res.ok) throw new Error("Failed to fetch categories");
         const data: Category[] = await res.json();
         setCategories(data);
@@ -55,7 +55,7 @@ const Shop = () => {
     const fetchProducts = async () => {
       setLoadingProducts(true);
       try {
-        const res = await fetch(`http://187.127.99.119:8000/api/products/category?category=${encodeURIComponent(activeCategory)}`);
+        const res = await fetch(`https://api.weblifebiz.com/api/products/category?category=${encodeURIComponent(activeCategory)}`);
         if (!res.ok) throw new Error("Failed to fetch products");
         const data: Product[] = await res.json();
         setProducts(data);
@@ -128,7 +128,7 @@ const Shop = () => {
                     >
                       <div className="relative aspect-square overflow-hidden">
                         <img 
-                      src={`http://187.127.99.119:8000${product.image}`}
+                      src={`https://api.weblifebiz.com${product.image}`}
                       alt={product.name} 
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                         />

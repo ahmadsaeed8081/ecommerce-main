@@ -66,7 +66,7 @@ const Home = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const res = await fetch("https://187.127.99.119/api/categories");
+        const res = await fetch("https://api.weblifebiz.com/api/categories");
         const data = await res.json();
        setCategories(data);
         console.log(data.name)

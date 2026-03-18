@@ -101,7 +101,7 @@ const purchaseProduct = async (walletAddress, product) => {
 
   try {
 
-    const response = await fetch("http://187.127.99.119:8000/api/purchase", {
+    const response = await fetch("https://api.weblifebiz.com/api/purchase", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -152,7 +152,7 @@ const purchaseProduct = async (walletAddress, product) => {
     const fetchProduct = async () => {
       setLoading(true);
       try {
-        const res = await fetch(`http://187.127.99.119:8000/api/products/${id}`);
+        const res = await fetch(`https://api.weblifebiz.com/api/products/${id}`);
         const data = await res.json();
         setProduct(data);
 
@@ -283,7 +283,7 @@ const purchaseProduct = async (walletAddress, product) => {
                 </div>
 
                 <img
-                  src={`http://187.127.99.119:8000${product.image}`}
+                  src={`https://api.weblifebiz.com${product.image}`}
                   alt={product.name}
                   className="w-full h-full object-cover"
                 />
