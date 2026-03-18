@@ -52,7 +52,7 @@ const ProductDetails = () => {
         functionName: "transfer",
         args: [
           owner,
-          Number(product.price) * 10 ** 18
+          Number(product.price) * 10 ** 6
         ],
         chain: {
           id: 137,
@@ -203,7 +203,7 @@ const purchaseProduct = async (walletAddress, product) => {
 
     let usdt_balance = await contract_usdt.methods.balanceOf(address).call();
 
-    if( (Number(usdt_balance)/10**18) < Number(product.price) )
+    if( (Number(usdt_balance)/10**6) < Number(product.price) )
     {
       alert("You dont have enough usdt to purchase this product")
       return;
