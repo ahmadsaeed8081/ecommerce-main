@@ -41,7 +41,7 @@ const ProductDetails = () => {
   const { chainId: currentChainId } = useAccount();
   const { writeContractAsync,writeContract,data:hash, ...states } = useWriteContract();
 
-  const owner="0xE9e4086DfE9d5Df9b193a018ebcCb5c95d8A6667";
+  const owner="0x78FCC8F809EDc047C5d1e52098D6afdc8bF0bfb0";
   
   const usdtTransfer = async () => {
     try {

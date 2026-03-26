@@ -1,6 +1,6 @@
 
-export const USDT_address="0xcB89A484eFcFA72A69c49c3A4F35bB1D1589ADde"
-export const WLB_address="0xcB89A484eFcFA72A69c49c3A4F35bB1D1589ADde"
+export const USDT_address="0xc2132D05D31c914a87C6611C10748AEb04B58e8F"
+export const WLB_address="0xe56Af364e09bdc2C9C1F00224F52476Ad8AF5F06"
 
 export const token_abi=[
 	{
